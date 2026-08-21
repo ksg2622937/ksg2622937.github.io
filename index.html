@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>권승준 · 품질관리·생산관리·공정관리 직무 지원 프로필</title>
+<style>
+  :root{
+    --bg:#F1F2F4;
+    --surface:#FFFFFF;
+    --ink:#16202B;
+    --ink-soft:#4E5966;
+    --ink-faint:#8B939C;
+    --rule:#D8DBE0;
+    --rule-soft:#E7E9EC;
+    --accent:#2C4A6E;
+    --accent-tint:#E7ECF2;
+    --sans:-apple-system, "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic", Roboto, sans-serif;
+    --num:"SFMono-Regular", ui-monospace, Consolas, Menlo, monospace;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; scroll-padding-top:64px; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition-duration:0.001ms !important; animation-duration:0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.78;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:var(--accent); }
+  ::selection{ background:var(--accent-tint); color:var(--accent); }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .wrap{ max-width:720px; margin:0 auto; padding:0 22px; }
+
+  /* ---------- sticky index bar ---------- */
+  .indexbar{
+    position:sticky; top:0; z-index:30;
+    background:var(--surface);
+    border-bottom:1px solid var(--rule);
+  }
+  .indexbar .wrap{
+    display:flex; align-items:center; gap:14px;
+    padding-top:12px; padding-bottom:12px;
+  }
+  .idname{
+    font-size:15px; font-weight:700; letter-spacing:-0.01em;
+    flex:none; padding-right:14px; border-right:1px solid var(--rule);
+    white-space:nowrap;
+  }
+  .idnav{
+    display:flex; gap:2px; overflow-x:auto;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .idnav::-webkit-scrollbar{ display:none; }
+  .idnav a{
+    flex:none; font-size:13.5px; color:var(--ink-soft);
+    text-decoration:none; padding:5px 9px; white-space:nowrap;
+    border-bottom:2px solid transparent;
+  }
+  .idnav a:hover{ color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    background:var(--surface);
+    border-bottom:1px solid var(--rule);
+    padding:44px 0 40px;
+  }
+  .role-line{
+    font-size:13px; font-weight:700; letter-spacing:0.1em;
+    color:var(--accent); text-transform:uppercase;
+    padding-bottom:14px; margin-bottom:20px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .masthead h1{
+    margin:0; font-size:clamp(30px,8vw,42px); font-weight:800;
+    letter-spacing:-0.02em; line-height:1.2;
+  }
+  .name-sub{
+    display:block; margin-top:9px;
+    font-size:14.5px; font-weight:500; color:var(--ink-faint); letter-spacing:0.02em;
+  }
+  .lead{
+    margin:22px 0 0; font-size:18px; color:var(--ink-soft);
+  }
+  .lead strong{ color:var(--ink); font-weight:700; }
+
+  .keyfacts{
+    display:grid; grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--rule-soft);
+    margin-top:28px;
+  }
+  .keyfact{
+    padding:15px 0;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .keyfact:nth-child(odd){ padding-right:14px; border-right:1px solid var(--rule-soft); }
+  .keyfact:nth-child(even){ padding-left:16px; }
+  .keyfact .kf-label{ font-size:12px; color:var(--ink-faint); letter-spacing:0.05em; }
+  .keyfact .kf-value{ font-size:15.5px; font-weight:700; line-height:1.4; margin-top:2px; }
+
+  /* ---------- section frame ---------- */
+  section{ padding:46px 0 8px; }
+  .sec-head{
+    display:flex; align-items:baseline; gap:12px;
+    padding-bottom:12px; margin-bottom:24px;
+    border-bottom:2px solid var(--ink);
+  }
+  .sec-no{
+    font-family:var(--num); font-size:12.5px; color:var(--accent); font-weight:700;
+    letter-spacing:0.06em;
+  }
+  .sec-head h2{ margin:0; font-size:19px; font-weight:800; letter-spacing:-0.01em; }
+
+  /* ---------- spec rows ---------- */
+  .rows{ border-top:1px solid var(--rule-soft); }
+  .row{
+    display:flex; gap:14px; padding:14px 0;
+    border-bottom:1px solid var(--rule-soft);
+    font-size:15.5px;
+  }
+  .row .lbl{ flex:none; width:82px; color:var(--ink-faint); font-size:14px; }
+  .row .val{ flex:1; font-weight:600; }
+  .row .val em{ display:block; font-style:normal; font-weight:400; color:var(--ink-soft); font-size:14.5px; }
+
+  /* ---------- strengths ---------- */
+  .strengths{ border-top:1px solid var(--rule-soft); }
+  .strength{
+    padding:18px 0; border-bottom:1px solid var(--rule-soft);
+  }
+  .strength h3{
+    margin:0 0 5px; font-size:16.5px; font-weight:800;
+    display:flex; align-items:baseline; gap:9px;
+  }
+  .strength h3 span{
+    font-family:var(--num); font-size:12px; color:var(--accent); font-weight:700;
+  }
+  .strength p{ margin:0; font-size:15px; color:var(--ink-soft); }
+
+  /* ---------- career ---------- */
+  .job-title{ font-size:17.5px; font-weight:800; margin:0; }
+  .job-meta{ font-size:13.5px; color:var(--ink-faint); margin-top:3px; }
+  .job-desc{ font-size:15.5px; color:var(--ink-soft); margin:14px 0 0; }
+
+  .headline{
+    margin-top:26px; padding:22px;
+    background:var(--surface); border:1px solid var(--rule);
+  }
+  .headline-label{
+    font-size:12.5px; font-weight:700; letter-spacing:0.06em;
+    color:var(--accent); margin-bottom:16px;
+  }
+  .chart3d{ width:100%; height:auto; display:block; margin-top:8px; overflow:visible; }
+  .bar-value{
+    font-family:var(--num); font-size:14px; font-weight:700; fill:var(--ink);
+  }
+  .bar-value.before{ fill:var(--ink-soft); }
+  .bar-value.after{ fill:var(--accent); }
+  .bar-cat{ font-size:12.5px; fill:var(--ink-faint); }
+  .bar3d{
+    transform-box:fill-box;
+    transform-origin:0% 100%;
+    transform:scaleY(0.06);
+    opacity:0;
+    transition:transform 0.9s cubic-bezier(.2,.7,.2,1), opacity 0.5s ease;
+  }
+  .bar3d.grown{ transform:scaleY(1); opacity:1; }
+  .bar3d .bar-value{ transition:opacity 0.4s ease 0.5s; opacity:0; }
+  .bar3d.grown .bar-value{ opacity:1; }
+  .headline-note{
+    margin-top:16px; padding-top:14px; border-top:1px solid var(--rule-soft);
+    font-size:13.5px; color:var(--ink-faint);
+  }
+
+  .star{ margin-top:26px; border-top:1px solid var(--rule-soft); }
+  .star-row{ padding:16px 0; border-bottom:1px solid var(--rule-soft); }
+  .star-key{
+    font-family:var(--num); font-size:12px; font-weight:700; letter-spacing:0.1em;
+    color:var(--accent); text-transform:uppercase; margin-bottom:5px;
+  }
+  .star-row p{ margin:0; font-size:15px; }
+
+  .aside{
+    margin-top:22px; padding:16px 18px;
+    background:var(--accent-tint); font-size:14.5px; color:var(--ink-soft);
+  }
+  .aside + .aside{ margin-top:10px; }
+
+  /* ---------- list items (cert / award / activity) ---------- */
+  .items{ border-top:1px solid var(--rule-soft); }
+  .item{ padding:16px 0; border-bottom:1px solid var(--rule-soft); }
+  .item .t{ font-size:16px; font-weight:700; }
+  .item .d{ font-size:14.5px; color:var(--ink-soft); margin-top:3px; }
+
+  /* ---------- project ---------- */
+  .proj{
+    background:var(--surface); border:1px solid var(--rule);
+    padding:22px; margin-bottom:14px;
+  }
+  .proj h3{ margin:0; font-size:16.5px; font-weight:800; line-height:1.4; }
+  .proj .p-meta{ font-size:13px; color:var(--ink-faint); margin-top:4px; }
+  .proj .p-sum{ font-size:14.5px; color:var(--ink-soft); margin-top:12px; }
+  .proj ul{ margin:12px 0 0; padding-left:17px; }
+  .proj li{ font-size:14.5px; margin-bottom:8px; }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .tag{
+    font-size:12px; color:var(--accent); border:1px solid var(--rule);
+    padding:3px 9px; letter-spacing:0.02em;
+  }
+  .figrow{
+    display:flex; gap:22px; flex-wrap:wrap;
+    margin-top:16px; padding-top:14px; border-top:1px solid var(--rule-soft);
+  }
+  .figrow .n{ font-family:var(--num); font-size:17px; font-weight:700; color:var(--accent); }
+  .figrow .l{ font-size:11.5px; color:var(--ink-faint); }
+
+  /* ---------- contact ---------- */
+  .contact{
+    margin-top:8px; padding:30px 24px;
+    background:var(--ink); color:#fff; text-align:center;
+  }
+  .contact h3{ margin:0 0 8px; font-size:18px; color:#fff; font-weight:800; }
+  .contact p{ margin:0 0 20px; font-size:14.5px; color:rgba(255,255,255,0.72); }
+  .mailbtn{
+    display:inline-block; background:#fff; color:var(--ink);
+    font-weight:700; font-size:15.5px; padding:13px 22px;
+    text-decoration:none; word-break:break-all;
+  }
+  .mailbtn:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+
+  footer{ padding:26px 0 56px; font-size:12px; color:var(--ink-faint); line-height:1.6; }
+
+  @media (min-width:680px){
+    body{ font-size:17.5px; }
+    section{ padding:58px 0 8px; }
+    .masthead{ padding:60px 0 48px; }
+    .row .lbl{ width:110px; }
+    .headline{ padding:28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="indexbar">
+  <div class="wrap">
+    <span class="idname">권승준</span>
+    <nav class="idnav" aria-label="섹션 이동">
+      <a href="#strengths">강점</a>
+      <a href="#career">경력</a>
+      <a href="#profile">인적사항</a>
+      <a href="#certs">자격증</a>
+      <a href="#awards">수상</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#club">동아리</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="role-line">품질관리 · 생산관리 · 공정관리 직무 지원</div>
+    <h1>권승준
+      <span class="name-sub">KWON SEUNGJUN · 자동차공학 전공</span>
+    </h1>
+    <p class="lead">
+      현장에서 문제를 <strong>데이터로 잡아낸 사람</strong>이라는 프레임으로 이직을 준비하고 있습니다.
+    </p>
+
+    <div class="keyfacts">
+      <div class="keyfact">
+        <div class="kf-label">실무 경력</div>
+        <div class="kf-value">2년 6개월</div>
+      </div>
+      <div class="keyfact">
+        <div class="kf-label">전공</div>
+        <div class="kf-value">자동차공학</div>
+      </div>
+      <div class="keyfact">
+        <div class="kf-label">주요 자격</div>
+        <div class="kf-value">산업안전기사 외 3</div>
+      </div>
+      <div class="keyfact">
+        <div class="kf-label">어학</div>
+        <div class="kf-value">TOEIC Speaking IH</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 강점 -->
+  <section id="strengths">
+    <div class="sec-head">
+      <span class="sec-no">01</span>
+      <h2>직무 강점 · 포지셔닝</h2>
+    </div>
+    <div class="strengths">
+      <div class="strength">
+        <h3><span>01</span>현장 문제해결력</h3>
+        <p>매뉴얼에 의존하지 않고 정밀측정 데이터로 결함의 근본 원인을 직접 규명한 경험.</p>
+      </div>
+      <div class="strength">
+        <h3><span>02</span>체계적 품질관리 역량</h3>
+        <p>ISO 9001·6시그마 방법론을 실무 경험 위에 체계화.</p>
+      </div>
+      <div class="strength">
+        <h3><span>03</span>데이터 기반 분석력</h3>
+        <p>AX-PBL 프로젝트를 통한 머신러닝·EDA 실습 경험으로 품질 데이터 분석 역량 확장.</p>
+      </div>
+      <div class="strength">
+        <h3><span>04</span>소통 · 중재력</h3>
+        <p>외향적 성격과 이해관계 조율 능력을 바탕으로, 생산팀·협력업체·검사기관 사이의 접점 역할 수행에 강점.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 경력 -->
+  <section id="career">
+    <div class="sec-head">
+      <span class="sec-no">02</span>
+      <h2>경력</h2>
+    </div>
+
+    <h3 class="job-title">타타대우상용차 부산서비스센터</h3>
+    <div class="job-meta">상용차 정비 기술직 · 2년 6개월</div>
+    <p class="job-desc">
+      상용차 정비 및 품질검사를 담당했으며, 정밀측정기(마이크로미터·다이얼게이지·하이트게이지)를 활용해 불량 원인을 분석하고 개선하는 업무를 수행했습니다.
+    </p>
+
+    <div class="headline">
+      <div class="headline-label">핵심 성과 — 신차 연료 누유 결함 개선</div>
+
+      <svg class="chart3d" viewBox="0 0 360 230" role="img" aria-label="월간 결함 발생 건수, 개선 전 40건에서 개선 후 10건 미만으로 감소">
+        <line x1="34" y1="200" x2="340" y2="200" stroke="var(--rule)" stroke-width="1"/>
+        <line x1="34" y1="150" x2="340" y2="150" stroke="var(--rule-soft)" stroke-width="1" stroke-dasharray="2 4"/>
+        <line x1="34" y1="100" x2="340" y2="100" stroke="var(--rule-soft)" stroke-width="1" stroke-dasharray="2 4"/>
+        <line x1="34" y1="50"  x2="340" y2="50"  stroke="var(--rule-soft)" stroke-width="1" stroke-dasharray="2 4"/>
+
+        <!-- 개선 전 (40건) -->
+        <g class="bar3d" data-value="40">
+          <text x="95" y="66" text-anchor="middle" class="bar-value before">40건</text>
+          <path class="face-top"  d="M 60,80 L 78,68 L 148,68 L 130,80 Z" fill="#CBD1D7"/>
+          <path class="face-side" d="M 130,80 L 148,68 L 148,188 L 130,200 Z" fill="#9BA2AA"/>
+          <path class="face-front" d="M 60,80 L 130,80 L 130,200 L 60,200 Z" fill="#B7BEC5"/>
+        </g>
+
+        <!-- 개선 후 (10건 미만) -->
+        <g class="bar3d" data-value="8">
+          <text x="255" y="158" text-anchor="middle" class="bar-value after">10건 미만</text>
+          <path class="face-top"  d="M 220,176 L 238,164 L 308,164 L 290,176 Z" fill="#3E5F86"/>
+          <path class="face-side" d="M 290,176 L 308,164 L 308,188 L 290,200 Z" fill="#1D3350"/>
+          <path class="face-front" d="M 220,176 L 290,176 L 290,200 L 220,200 Z" fill="#2C4A6E"/>
+        </g>
+
+        <text x="95"  y="218" text-anchor="middle" class="bar-cat">개선 전</text>
+        <text x="255" y="218" text-anchor="middle" class="bar-cat">개선 후</text>
+      </svg>
+
+      <div class="headline-note">월간 연료 누유 결함 발생 건수 기준</div>
+    </div>
+
+    <div class="star">
+      <div class="star-row">
+        <div class="star-key">Situation</div>
+        <p>출고된 신차에서 연료 누유 결함이 월 40건 수준으로 반복 발생.</p>
+      </div>
+      <div class="star-row">
+        <div class="star-key">Task</div>
+        <p>정형화된 매뉴얼이 없는 상태에서, 본인이 자발적으로 약 한 달간 원인 규명에 착수.</p>
+      </div>
+      <div class="star-row">
+        <div class="star-key">Action</div>
+        <p>동일 증상 차량 10대를 마이크로미터·다이얼게이지로 비교 분석해 오일링(O-ring) 규격 편차를 근본 원인으로 특정하고 개선 조치를 제안.</p>
+      </div>
+      <div class="star-row">
+        <div class="star-key">Result</div>
+        <p>월 발생 건수를 40건 → 10건 미만으로 감소. '사후 수리'보다 '사전 원인관리'의 중요성을 체감해 ISO 9001 심사원(보)·6시그마 그린벨트 취득으로 이어짐.</p>
+      </div>
+    </div>
+
+    <div class="aside">
+      정비 현장에서 생산 일정과 품질 기준이 충돌하는 상황마다 양측 입장을 데이터로 정리해 조율하는 역할을 다수 수행했습니다 (부서 간 소통·중재 경험).
+    </div>
+    <div class="aside">
+      재직 중 사내 엔진·후처리 교육에서 최우수상을 수상했습니다.
+    </div>
+  </section>
+
+  <!-- 인적사항 -->
+  <section id="profile">
+    <div class="sec-head">
+      <span class="sec-no">03</span>
+      <h2>기본 인적사항</h2>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="lbl">병역</span><span class="val">군필</span></div>
+      <div class="row"><span class="lbl">학력</span><span class="val">경상대학교<em>자동차공학과</em></span></div>
+      <div class="row"><span class="lbl">어학</span><span class="val">TOEIC Speaking IH</span></div>
+      <div class="row"><span class="lbl">경력</span><span class="val">2년 6개월<em>타타대우상용차 부산서비스센터</em></span></div>
+    </div>
+  </section>
+
+  <!-- 자격증 -->
+  <section id="certs">
+    <div class="sec-head">
+      <span class="sec-no">04</span>
+      <h2>자격증</h2>
+    </div>
+    <div class="items">
+      <div class="item">
+        <div class="t">산업안전기사</div>
+      </div>
+      <div class="item">
+        <div class="t">자동차정비산업기사</div>
+      </div>
+      <div class="item">
+        <div class="t">ISO 9001 심사원(보)</div>
+        <div class="d">품질경영시스템 심사 방법론(PDCA, 리스크 기반 사고, 프로세스 접근법) 이수</div>
+      </div>
+      <div class="item">
+        <div class="t">Six Sigma Green Belt</div>
+        <div class="d">통계적 품질관리 및 공정능력 분석 방법론 이수</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 수상 -->
+  <section id="awards">
+    <div class="sec-head">
+      <span class="sec-no">05</span>
+      <h2>수상</h2>
+    </div>
+    <div class="items">
+      <div class="item">
+        <div class="t">사내 엔진·후처리 교육 최우수상</div>
+        <div class="d">타타대우상용차 재직 중 수상</div>
+      </div>
+      <div class="item">
+        <div class="t">졸업 캡스톤 프로젝트 우수상</div>
+        <div class="d">경상대학교 · 전기자동차(EV) 배터리·모터 제어시스템 설계·제작</div>
+      </div>
+      <div class="item">
+        <div class="t">교내 학술대회 우수상</div>
+        <div class="d">전기자동차 제작동아리 Team Solar 활동 중 수상</div>
+      </div>
+      <div class="item">
+        <div class="t">3D 설계 학술대회 우수상</div>
+        <div class="d">한국기계가공협회 주최 · 3D 브레이크 패드 설계 프로젝트</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로젝트 -->
+  <section id="projects">
+    <div class="sec-head">
+      <span class="sec-no">06</span>
+      <h2>프로젝트</h2>
+    </div>
+
+    <div class="proj">
+      <h3>졸업 캡스톤 프로젝트</h3>
+      <div class="p-meta">경상대학교 · 우수상 수상</div>
+      <div class="p-sum">전기자동차(EV) 배터리·모터 제어시스템 설계·제작</div>
+      <div class="tags">
+        <span class="tag">CATIA</span>
+        <span class="tag">ANSYS</span>
+        <span class="tag">역할: 팀장</span>
+      </div>
+      <div class="figrow">
+        <div><div class="n">8주</div><div class="l">프로젝트 기간</div></div>
+        <div><div class="n">35회</div><div class="l">팀 회의 횟수</div></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <h3>AX-PBL 프로젝트 — Steel Plates Faults 결함 분류 분석</h3>
+      <div class="p-meta">한국품질재단(KFQ) AX-PBL 과정</div>
+      <div class="p-sum">데이터 분석 + 머신러닝 · Steel Plates Faults 데이터셋 (결함 1,941건 · 특징 27개 · 결함 유형 7종)</div>
+      <ul>
+        <li>Logistic Regression, KNN, SVM, Random Forest, Gradient Boosting 5개 모델을 macro-F1 기준으로 비교하여 Gradient Boosting을 최종 모델로 선정.</li>
+        <li>EDA에서 결함 유형별 강종·두께·면적·광도 분포 등 6종 시각화로 구분 요인을 규명. K_Scatch는 면적·두께·강종 조합에서 뚜렷이 구분되는 반면, Bumps·Other_Faults는 특징 축에서 상당 부분 중첩됨을 확인.</li>
+        <li>산출물을 학습 코드, 결과 시각화, 마크다운 분석 보고서 형태로 구조화하여 정리.</li>
+      </ul>
+      <div class="figrow">
+        <div><div class="n">0.794</div><div class="l">교차검증 macro-F1</div></div>
+        <div><div class="n">5</div><div class="l">비교 모델 수</div></div>
+        <div><div class="n">7종</div><div class="l">결함 유형</div></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <h3>3D 브레이크 패드 설계 프로젝트</h3>
+      <div class="p-meta">한국기계가공협회 3D 설계 학술대회 우수상</div>
+      <div class="p-sum">CATIA로 설계한 자료를 ANSYS로 점검·검증.</div>
+      <div class="tags">
+        <span class="tag">CATIA</span>
+        <span class="tag">ANSYS</span>
+        <span class="tag">역할: 팀장</span>
+      </div>
+    </div>
+  </section>
+  <section id="club">
+    <div class="sec-head">
+      <span class="sec-no">07</span>
+      <h2>동아리 활동</h2>
+    </div>
+    <div class="proj">
+      <h3>전기자동차 제작동아리 Team Solar</h3>
+      <div class="p-meta">회장 · 2021 ~ 2023</div>
+      <ul>
+        <li>KSAE(한국자동차공학회) 주관 전기자동차 제작대회 출전 2회.</li>
+        <li>교내 학술대회 우수상 수상.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 연락처 -->
+  <section id="contact">
+    <div class="sec-head">
+      <span class="sec-no">08</span>
+      <h2>연락처</h2>
+    </div>
+    <div class="contact">
+      <h3>연락 및 서류 요청</h3>
+      <p>연락처는 지원 서류 제출 시 별도로 안내드립니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    본 문서는 Claude와의 대화 기록을 바탕으로 자동 정리된 개인 이력·경험 요약본입니다.
+    실제 지원 서류(이력서·자기소개서) 제출 전 세부 수치와 표현은 반드시 본인이 최종 확인하시기 바랍니다.
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.idnav a'));
+  var sections = links.map(function(a){
+    return document.querySelector(a.getAttribute('href'));
+  });
+
+  function clearActive(){
+    links.forEach(function(a){
+      a.style.color = '';
+      a.style.borderBottomColor = 'transparent';
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var idx = sections.indexOf(entry.target);
+      if(idx < 0) return;
+      clearActive();
+      var a = links[idx];
+      a.style.color = 'var(--accent)';
+      a.style.borderBottomColor = 'var(--accent)';
+
+      var container = a.parentElement;
+      if(container){
+        var cRect = container.getBoundingClientRect();
+        var aRect = a.getBoundingClientRect();
+        if(aRect.left < cRect.left){
+          container.scrollLeft += (aRect.left - cRect.left) - 12;
+        } else if(aRect.right > cRect.right){
+          container.scrollLeft += (aRect.right - cRect.right) + 12;
+        }
+      }
+    });
+  }, { rootMargin:'-50% 0px -46% 0px', threshold:0 });
+
+  sections.forEach(function(s){ if(s) observer.observe(s); });
+
+  var bars = document.querySelectorAll('.bar3d');
+  var barObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('grown');
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  bars.forEach(function(b){ barObserver.observe(b); });
+})();
+</script>
+</body>
+</html>
